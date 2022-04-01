@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { TouchableOpacity } from "react-native";
 import {SafeAreaView} from 'react-native-safe-area-context'
 import ButtonNext from "../../Components/NextButton";
+import { useAuth } from "../../Providers/auth";
 
 import {
 Main,
@@ -15,7 +16,7 @@ Input
 } from './styles'
 
 export default function NameScreen(props){
-    const [name, setName] = useState('');
+    const {name, setName} = useAuth()
     const height = props.route.params.height
     const weight = props.route.params.weight
     const age = props.route.params.age

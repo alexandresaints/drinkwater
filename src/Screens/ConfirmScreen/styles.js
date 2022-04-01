@@ -12,11 +12,10 @@ export const MainText = styled.View`
     text-align: left;
 `
 export const Container = styled.View`
-    margin-top: -130px;
 `
 export const ButtonContainer = styled.View`
     flex-direction: row;
-    margin-top: 20px;
+    margin-top: 90px;
 `
 export const TextHello = styled.Text`
     text-align: left;

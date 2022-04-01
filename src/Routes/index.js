@@ -1,6 +1,7 @@
 import React from "react";
 import {NavigationContainer} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useAuth } from "../Providers/auth";
 
 import Home from "../Screens/Home";
 import LibsScreen from "../Screens/LibsScreen";
@@ -14,6 +15,7 @@ import { StatusBar } from "expo-status-bar";
 const Main = createNativeStackNavigator()
 
 export default function Router(){
+    const {name} = useAuth()
     return(
         <>
         <NavigationContainer>
@@ -22,8 +24,8 @@ export default function Router(){
                 <Main.Screen name='LibsScreen' component={LibsScreen} options={{headerTitle: '', headerTransparent: true, headerShadowVisible: false, headerTintColor: 'rgb(300, 300, 300)'}}/>
                 <Main.Screen name='AgeScreen' component={AgeScreen} options={{headerTitle: '', headerTransparent: true, headerShadowVisible: false, headerTintColor: 'rgb(300, 300, 300)'}}/>
                 <Main.Screen name='NameScreen' component={NameScreen} options={{headerTitle: '', headerTransparent: true, headerShadowVisible: false, headerTintColor: 'rgb(300, 300, 300)'}}/>
-                <Main.Screen name='ConfirmScreen' component={ConfirmScreen} options={{headerTitle: '', headerTransparent: true, headerShadowVisible: false}}/>
-                <Main.Screen name='MainScreen' component={MainScreen} options={{ headerTitle: (props) => <Navbar {...props} />, headerBackVisible: false, headerStyle: { backgroundColor: 'rgb(28,28,28)'} ,headerTintColor: 'rgb(300, 300, 300)'}}/>
+                <Main.Screen name='ConfirmScreen' component={ConfirmScreen} options={{headerTitle: '', headerTransparent: true, headerShadowVisible: false, headerTintColor: 'rgb(300, 300, 300)'}}/>
+                <Main.Screen name='MainScreen' component={MainScreen} options={{ headerTitle: `Olá, ${name}`, headerShadowVisible: true, headerBackVisible: false, headerStyle: { backgroundColor: 'rgb(28,28,28)'} ,headerTintColor: 'rgb(300, 300, 300)'}}/>
             </Main.Navigator>
         </NavigationContainer>
         <StatusBar style="transparent"/>
